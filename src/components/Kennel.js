@@ -4,6 +4,7 @@
     import { EmployeeCard } from "./employee/EmployeeCard"
     import { LocationCard } from "./location/LocationCard"
     import { CustomerCard } from "./customer/CustomerCard"
+    import { PropsAndState } from "./PropsAndState.js"
     import "./Kennel.css"
     
     export const Kennel = () => (
@@ -14,7 +15,7 @@
                 <div>Visit Us at the Nashville North Location</div>
                 <div>500 Puppy Way</div>
             </address>
-
+            <PropsAndState yourName={"Brenda"} />
             <h2>Animals</h2>
         <article className="animals">
             <AnimalCard />

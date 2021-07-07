@@ -4,6 +4,8 @@
     import { Home } from "./Home"
     import { LocationCard } from "./location/LocationCard"
     import { AnimalCard } from "./animal/AnimalCard"
+    import { AnimalProvider } from "./animal/AnimalProvider"
+    import { AnimalList } from "./animal/AnimalList"
     import { CustomerCard } from "./customer/CustomerCard"
     import { EmployeeCard } from "./employee/EmployeeCard"
     
@@ -17,9 +19,12 @@
                 <Route path="/locations">
                     <LocationCard />
                 </Route>
-                <Route path="/animals">
-                    <AnimalCard />
-                </Route>
+
+                <AnimalProvider>
+                <Route exact path="/animals">
+                     <AnimalList />
+                        </Route>
+                </AnimalProvider>
                 <Route path="/customers">
                     <CustomerCard />
                 </Route>

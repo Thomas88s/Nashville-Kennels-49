@@ -3,7 +3,6 @@
     import { Route } from "react-router-dom"
     import { Home } from "./Home"
     import { LocationCard } from "./location/LocationCard"
-    import { AnimalCard } from "./animal/AnimalCard"
     import { AnimalProvider } from "./animal/AnimalProvider"
     import { AnimalList } from "./animal/AnimalList"
     import { CustomerCard } from "./customer/CustomerCard"
@@ -20,11 +19,12 @@
                     <LocationCard />
                 </Route>
 
-                <AnimalProvider>
                 <Route exact path="/animals">
-                     <AnimalList />
-                        </Route>
-                </AnimalProvider>
+                    <AnimalProvider>
+                        <AnimalList />
+                    </AnimalProvider>
+                </Route>
+
                 <Route path="/customers">
                     <CustomerCard />
                 </Route>

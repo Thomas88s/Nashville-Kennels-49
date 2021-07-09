@@ -2,11 +2,15 @@
     import React from "react"
     import { Route } from "react-router-dom"
     import { Home } from "./Home"
-    import { LocationCard } from "./location/LocationCard"
+    import { LocationProvider } from "./location/LocationProvider"
+    import { LocationList } from "./location/LocationList"
     import { AnimalProvider } from "./animal/AnimalProvider"
     import { AnimalList } from "./animal/AnimalList"
-    import { CustomerCard } from "./customer/CustomerCard"
-    import { EmployeeCard } from "./employee/EmployeeCard"
+    import { CustomerProvider } from "./customer/CustomerProvider"
+    import { CustomerList } from "./customer/CustomerList"
+    import { EmployeeProvider } from "./employee/EmployeeProvider"
+    import { EmployeeList } from "./employee/EmployeeList"
+    
     
     export const ApplicationViews = () => {
         return (
@@ -15,8 +19,11 @@
                 <Route exact path="/">
                     <Home />
                 </Route>
+                
                 <Route path="/locations">
-                    <LocationCard />
+                    <LocationProvider>
+                      <LocationList />
+                    </LocationProvider>
                 </Route>
 
                 <Route exact path="/animals">
@@ -26,10 +33,15 @@
                 </Route>
 
                 <Route path="/customers">
-                    <CustomerCard />
+                    <CustomerProvider>
+                         <CustomerList />
+                    </CustomerProvider>
                 </Route>
+
                 <Route path="/employees">
-                    <EmployeeCard />
+                  <EmployeeProvider>
+                      <EmployeeList />
+                  </EmployeeProvider>
                 </Route>
             </>
         )

@@ -27,9 +27,13 @@
                 </Route>
 
                 <Route exact path="/animals">
-                    <AnimalProvider>
-                        <AnimalList />
-                    </AnimalProvider>
+                <AnimalProvider>
+                  
+                       <Route exact path="/animals/create">
+                                <AnimalList />
+                       </Route>
+              
+                </AnimalProvider>
                 </Route>
 
                 <Route path="/customers">

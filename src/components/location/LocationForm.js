@@ -1,6 +1,6 @@
 
     import React, { useContext, useEffect, useState } from "react"
-    import { LocationContext } from "../location/LocationProvider"
+    import { LocationContext } from "./LocationProvider"
     import "./Location.css"
     import { useHistory } from 'react-router-dom';
     
@@ -15,7 +15,7 @@
     
       const [location, setLocation] = useState({
         name: "",
-        address: "",
+        address: ""
       });
     
       const history = useHistory();

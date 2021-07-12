@@ -4,6 +4,7 @@
     import { Home } from "./Home"
     import { LocationProvider } from "./location/LocationProvider"
     import { LocationList } from "./location/LocationList"
+    import { LocationForm }from "./location/LocationForm"
     import { AnimalProvider } from "./animal/AnimalProvider"
     import { AnimalList } from "./animal/AnimalList"
     import { AnimalForm } from "./animal/AnimalForm"
@@ -21,24 +22,31 @@
                     <Home />
                 </Route>
                 
-                <Route path="/locations">
                     <LocationProvider>
-                      <LocationList />
-                    </LocationProvider>
-                </Route>
-
-                                    <AnimalProvider>
-                    <Route exact path="/animals">
-                        <AnimalList />
-                    </Route>
-
-                    <CustomerProvider>
-                        <LocationProvider>
-                        <Route exact path="/animals/create">
-                            <AnimalForm />
+                
+                        <Route exact path="/locations">
+                           <LocationList />
                         </Route>
-                        </LocationProvider>
-                    </CustomerProvider>
+                        
+                        <Route exact path="/locations/create">
+                           <LocationForm />
+                        </Route>
+                    </LocationProvider>
+
+                    <AnimalProvider>
+                            <Route exact path="/animals">
+                                <AnimalList />
+                            </Route>
+
+                            <CustomerProvider>
+                                <LocationProvider>
+
+                             <Route exact path="/animals/create">
+                                 <AnimalForm />
+                             </Route>
+
+                             </LocationProvider>
+                         </CustomerProvider>
                     </AnimalProvider>
 
                 <Route path="/customers">

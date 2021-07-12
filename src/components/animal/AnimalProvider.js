@@ -1,5 +1,6 @@
 
     import React, { useState, createContext } from "react"
+import { AnimalForm } from "./AnimalForm"
 
     // The context is imported and used by individual components that need data
     export const AnimalContext = createContext()
@@ -14,15 +15,15 @@
             .then(setAnimals)
         }
     
-        const addAnimal = animalObj => {
+        const addAnimal = animal => {
             return fetch("http://localhost:8088/animals", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify(animalObj)
+                body: JSON.stringify(animal)
             })
-            .then(getAnimals)
+            .then(response => response.json())
         }
     
         /*

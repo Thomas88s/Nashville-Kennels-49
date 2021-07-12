@@ -6,6 +6,7 @@
     import { LocationList } from "./location/LocationList"
     import { AnimalProvider } from "./animal/AnimalProvider"
     import { AnimalList } from "./animal/AnimalList"
+    import { AnimalForm } from "./animal/AnimalForm"
     import { CustomerProvider } from "./customer/CustomerProvider"
     import { CustomerList } from "./customer/CustomerList"
     import { EmployeeProvider } from "./employee/EmployeeProvider"
@@ -26,15 +27,19 @@
                     </LocationProvider>
                 </Route>
 
-                <Route exact path="/animals">
-                <AnimalProvider>
-                  
-                       <Route exact path="/animals/create">
-                                <AnimalList />
-                       </Route>
-              
-                </AnimalProvider>
-                </Route>
+                                    <AnimalProvider>
+                    <Route exact path="/animals">
+                        <AnimalList />
+                    </Route>
+
+                    <CustomerProvider>
+                        <LocationProvider>
+                        <Route exact path="/animals/create">
+                            <AnimalForm />
+                        </Route>
+                        </LocationProvider>
+                    </CustomerProvider>
+                    </AnimalProvider>
 
                 <Route path="/customers">
                     <CustomerProvider>

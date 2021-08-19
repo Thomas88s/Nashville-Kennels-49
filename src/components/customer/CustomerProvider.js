@@ -1,4 +1,5 @@
 import React, { useState, createContext } from "react"
+import { apiUrl } from "../Kennel.js"
 
     // The context is imported and used by individual components that need data
     export const CustomerContext = createContext()
@@ -8,13 +9,13 @@ import React, { useState, createContext } from "react"
         const [customers, setCustomers] = useState([])
     
         const getCustomers = () => {
-            return fetch("http://localhost:8088/customers")
+            return fetch(`${apiUrl}customers`)
             .then(res => res.json())
             .then(setCustomers)
         }
     
         const addCustomer = customerObj => {
-            return fetch("http://localhost:8088/customers", {
+            return fetch(`${apiUrl}customers`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

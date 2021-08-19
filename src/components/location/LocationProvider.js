@@ -1,4 +1,5 @@
 import React, { useState, createContext } from "react"
+import { apiUrl } from "../Kennel.js"
 
     // The context is imported and used by individual components that need data
     export const LocationContext = createContext()
@@ -8,13 +9,13 @@ import React, { useState, createContext } from "react"
         const [locations, setLocations] = useState([])
     
         const getLocations = () => {
-            return fetch("http://localhost:8088/locations")
+            return fetch(`${apiUrl}locations`)
             .then(res => res.json())
             .then(setLocations)
         }
     
         const addLocation = location => {
-            return fetch("http://localhost:8088/locations", {
+            return fetch(`${apiUrl}locations`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

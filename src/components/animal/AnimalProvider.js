@@ -1,6 +1,6 @@
 
     import React, { useState, createContext } from "react"
-
+    import { apiUrl } from "../Kennel.js"
 
     // The context is imported and used by individual components that need data
     export const AnimalContext = createContext()
@@ -10,13 +10,13 @@
         const [animals, setAnimals] = useState([])
     
         const getAnimals = () => {
-            return fetch("http://localhost:8088/animals?_expand=location&_expand=customer")
+            return fetch(`${apiUrl}animals?_expand=location&_expand=customer`)
             .then(res => res.json())
             .then(setAnimals)
         }
     
         const addAnimal = animal => {
-            return fetch("http://localhost:8088/animals", {
+            return fetch(`${apiUrl}animals`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -26,7 +26,7 @@
             .then(response => response.json())
         }
         const getAnimalById = (id) => {
-            return fetch(`http://localhost:8088/animals/${id}?_expand=location&_expand=customer`)
+            return fetch(`${apiUrl}animals/${id}?_expand=location&_expand=customer`)
             .then(res => res.json()) // note we don't set anything on state here. Why?
         }
         

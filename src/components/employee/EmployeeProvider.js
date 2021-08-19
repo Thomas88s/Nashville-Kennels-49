@@ -1,5 +1,6 @@
 
     import React, { useState, createContext } from "react"
+    import { apiUrl } from "../Kennel.js"
 
     // The context is imported and used by individual components that need data
     export const EmployeeContext = createContext()
@@ -9,13 +10,13 @@
         const [employees, setEmployees] = useState([])
     
         const getEmployees = () => {
-            return fetch("http://localhost:8088/employees?_expand=location")
+            return fetch(`${apiUrl}employees?_expand=location`)
             .then(res => res.json())
             .then(setEmployees)
         }
     
         const addEmployee = employee => {
-            return fetch("http://localhost:8088/employees", {
+            return fetch(`${apiUrl}employees`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -25,12 +26,7 @@
             .then(response => response.json())
         }
     
-        /*
-            You return a context provider which has the
-            `animals` state, `getAnimals` function,
-            and the `addAnimal` function as keys. This
-            allows any child elements to access them.
-        */
+      
         return (
             <EmployeeContext.Provider value={{
                 employees, getEmployees, addEmployee

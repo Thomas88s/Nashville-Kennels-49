@@ -1,8 +1,6 @@
 
     import React, { useState, createContext } from "react"
-
-     const apiUrl="https://nashvillekennel-api.herokuapp.com/"
-    //  const apiUrl="http://localhost:8088/"
+    import { apiUrl } from "../Kennel.js"
 
     // The context is imported and used by individual components that need data
     export const AnimalContext = createContext()
